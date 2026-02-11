@@ -35,7 +35,9 @@ export async function POST(req) {
     const djangoData = await djangoResponse.json();
 
     const rawKey = process.env.GOOGLE_PRIVATE_KEY || "";
-    const formattedKey = rawKey.replace(/\\n/g, '\n');
+    const formattedKey = rawKey.includes('\\n') 
+      ? rawKey.replace(/\\n/g, '\n')
+      : rawKey;
 
     const auth = new google.auth.GoogleAuth({
       credentials: {
@@ -53,17 +55,17 @@ export async function POST(req) {
       summary: `TRASLADO: ${data.vehicleInfo || 'Vehículo'} [${data.plate || 'S/M'}]`,
       location: data.pickAddress || "Dirección no proporcionada", 
       description: `
-MATRÍCULA: ${data.plate}
-RECOGIDA: ${data.pickAddress}
-ENTREGA: ${data.dropAddress}
-TELÉFONO: ${data.phone}
-NOTAS: ${data.comments}
+        MATRÍCULA: ${data.plate}
+        RECOGIDA: ${data.pickAddress}
+        ENTREGA: ${data.dropAddress}
+        TELÉFONO: ${data.phone}
+        NOTAS: ${data.comments}
 
-ID Django: ${djangoData.id}
-      `.trim(),
-      start: { date: eventDate },
-      end: { date: eventDate },
-    };
+        ID Django: ${djangoData.id}
+              `.trim(),
+              start: { date: eventDate },
+              end: { date: eventDate },
+            };
 
     const calendarResponse = await calendar.events.insert({
       calendarId: process.env.GOOGLE_CALENDAR_ID,
