@@ -34,7 +34,6 @@ export async function POST(req) {
 
     const djangoData = await djangoResponse.json();
 
-    // Google Calendar API
     const rawKey = process.env.GOOGLE_PRIVATE_KEY || "";
     const formattedKey = rawKey.replace(/\\n/g, '\n');
 
@@ -48,6 +47,8 @@ export async function POST(req) {
 
     const calendar = google.calendar({ version: 'v3', auth });
 
+    const eventDate = data.date.split('T')[0]; 
+
     const event = {
       summary: `TRASLADO: ${data.vehicleInfo || 'Vehículo'} [${data.plate || 'S/M'}]`,
       location: data.pickAddress || "Dirección no proporcionada", 
@@ -60,8 +61,8 @@ NOTAS: ${data.comments}
 
 ID Django: ${djangoData.id}
       `.trim(),
-      start: { date: data.date },
-      end: { date: data.date },
+      start: { date: eventDate },
+      end: { date: eventDate },
     };
 
     const calendarResponse = await calendar.events.insert({
