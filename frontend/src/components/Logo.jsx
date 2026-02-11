@@ -1,0 +1,63 @@
+const Logo = ({ className }) => {
+    return (
+        <svg 
+            viewBox="0 0 20 20" 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none"
+            className={className}
+        >
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
+            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>
+            <g id="SVGRepo_iconCarrier"> 
+                <g id="steering-wheel" transform="translate(-2 -2)"> 
+                    <path 
+                        id="secondary" 
+                        fill="#1E88E5" 
+                        d="M21,12a7.56,7.56,0,0,1,0,.83l-2.1-.29A4.38,4.38,0,0,0,14,16.89v3.89a9.2,9.2,0,0,1-4,0V16.89a4.38,4.38,0,0,0-4.86-4.35L3,12.83A7.56,7.56,0,0,1,3,12a8.84,8.84,0,0,1,.46-2.83,31.75,31.75,0,0,1,17.08,0A8.84,8.84,0,0,1,21,12Z"
+                    /> 
+                    <path 
+                        id="primary" 
+                        d="M14,20.62V16.89a4.38,4.38,0,0,1,4.86-4.35l2,.23" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth="2"
+                    /> 
+                    <path 
+                        id="primary-2" 
+                        d="M3.16,12.77l2-.23A4.38,4.38,0,0,1,10,16.89v3.73" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth="2"
+                    /> 
+                    <path 
+                        id="primary-3" 
+                        d="M20.37,9.17A29.38,29.38,0,0,0,12,8,29,29,0,0,0,3.51,9.21" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth="2"
+                    /> 
+                    <circle 
+                        id="primary-4" 
+                        cx="9" 
+                        cy="9" 
+                        r="9" 
+                        transform="translate(3 3)" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth="2"
+                    /> 
+                </g> 
+            </g>
+        </svg>
+    )
+}
+
+export default Logo
